@@ -1,36 +1,213 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🔗 URL Shortener App
 
-## Getting Started
+A modern, fast, and privacy-focused **URL Shortener Web Application** built with **Next.js, MongoDB, and Tailwind CSS**.
+Easily convert long URLs into clean, shareable short links with optional user authentication.
 
-First, run the development server:
+---
+
+## 🚀 Features
+
+* 🔗 **Shorten Long URLs** instantly
+* ✏️ **Custom Short Links** (user-defined keywords)
+* 🔐 **Authentication System** (Login / Signup)
+* 👤 **User Dashboard** – view your created URLs
+* 🌙 **Dark & Light Mode UI**
+* 📱 **Fully Responsive Design** (mobile, tablet, desktop)
+* ⚡ **Fast & Optimized Backend** using MongoDB
+* 📋 **Copy to Clipboard** functionality
+* 🔄 **Instant Redirection** using dynamic routing
+
+---
+
+## 🧠 How It Works
+
+1. User enters a long URL and custom short name
+2. The app stores it in MongoDB
+3. A short link is generated:
+
+   ```
+   https://yourdomain.com/shortcode
+   ```
+4. When visited → app fetches original URL → redirects instantly
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+
+* Next.js (App Router)
+* React.js
+* Tailwind CSS
+* shadcn/ui
+* Redux Toolkit
+
+### Backend
+
+* Next.js API Routes
+* MongoDB (Mongoose)
+
+### Other Tools
+
+* Axios
+* JWT Authentication
+* Sonner (toast notifications)
+* Lucide Icons
+
+---
+
+## 📁 Project Structure
+
+```
+/app
+  /about
+  /login
+  /signup
+  /shorten
+  /my-urls
+  /[shorturl]   → redirect logic
+
+/api
+  /generate
+  /my-urls
+  /user
+
+/models
+  urlModel.js
+  userModel.js
+
+/dbConfig
+/lib
+/redux
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/hanzala-sarwar/url-shortener.git
+cd url-shortener
+```
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
+```
+
+### 3️⃣ Setup environment variables
+
+Create `.env.local`:
+
+```env
+MONGO_URI=your_mongodb_connection
+SECRET_KEY=your_jwt_secret
+NEXT_PUBLIC_HOST=http://localhost:3000
+```
+
+---
+
+### 4️⃣ Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in browser:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📱 Access on Mobile (Dev)
 
-To learn more about Next.js, take a look at the following resources:
+Run:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run dev -- -H 0.0.0.0
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Then open:
 
-## Deploy on Vercel
+```
+http://YOUR_LOCAL_IP:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔐 Authentication Flow
+
+* Users can:
+
+  * Signup
+  * Login
+  * Generate URLs
+  * View their URLs in **My URLs page**
+
+* Guests can:
+
+  * Generate URLs (without login)
+
+---
+
+## 🔁 URL Redirection Logic
+
+Dynamic route:
+
+```
+/app/[shorturl]/page.jsx
+```
+
+* Fetches original URL from DB
+* Uses `redirect()` to send user
+
+---
+
+ 
+
+## 🚀 Future Improvements
+
+* 📊 Click analytics (track visits)
+* 🗑 Delete & Edit URLs
+* 🔍 Search & filter links
+* 📅 Created date & stats
+* 🔗 QR Code generation
+* 🔐 OAuth login (Google)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repo
+2. Create your branch
+3. Commit changes
+4. Push and open PR
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+**Hanzala Sarwar**
+
+* GitHub: https://github.com/hanzala-sarwar
+* LinkedIn: https://www.linkedin.com/in/hanzala-sarwar-28224a26b/
+
+---
+
+## ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
+ 
